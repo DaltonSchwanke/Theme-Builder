@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Theme Page</title>
+  <link id="styleSheet" rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="pageContainer">
+      <!-- BANNER HEADER -->
+      <div class="nav">
+        <div class="header"><h1>THEMATIC.</h1></div>
+        <div class="links-container">
+          <ul>
+            <li><button class="navButton" onclick="redirectHome()">Home</button></li>
+            <li><button class="navButton" onclick="redirectDashboard()">Dashboard</button></li>
+            <li><button class="navButton" onclick="redirectAbout()">About</button></li>
+            <li><button id="login" class="navButton" onclick="redirectLogin()">Login</button></li>
+            <li><button id="signup" class="navButton" onclick="redirectSignUp()">Signup</button></li>
+            <li><button id="logout" class="navButton" onclick="redirectLogout()">Logout</button></li>
+          </ul>
+        </div>
+      </div>
+  
+      <!-- THEME PAGE CONTENT -->
+      <div class="themePageContainer">
+        <!-- Title Section -->
+        <div class="titleSection">
+          <div class="themeTitle">
+            <h2 id="themeTitle">themeTitle</h2>
+            <h3 id="timestamp">TIME</h3>
+          </div>
+          <div class="rightButtons">
+            <button id="isLiked">♥</button>
+            <button id="downloadPDF">Download</button>
+          </div>
+        </div>
+      
+        <!-- Three Columns for Colors -->
+        <div id="themeColorContainer" class="colorColumns">
+          <div id="color1Box" class="colorBox">Color 1</div>
+          <div id="color3Box" class="colorBox">Color 3</div>
+          <div id="color2Box" class="colorBox">Color 2</div>
+        </div>
+      
+        <!-- Two stacked divs: one for link, one for description -->
+        <div id="infoContainer" class="stackedDivs">
+          <div id="theme link" class="themeLink">
+            <button id="editUrlBtn" class="pageButton">✎</button>
+            <a id="themeUrl" href="#">Link for the theme</a>
+          </div>
+          <div class="themeDescription">
+            <button id="editDescription">
+              <h3 id="themeDescription"></h3>
+              <input type="text" id="descriptionInput"/>
+            </button>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Footer -->
+      <div class="footer">
+        HERE
+      </div>
+    </div>
+  
+    <!-- Link to Script File -->
+    <script src="script.js"></script>
+  </body>
+</html>

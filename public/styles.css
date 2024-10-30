@@ -1,0 +1,621 @@
+/*-------------------------------------------------------------------------------------------*/
+/*------------------------------------- Global ----------------------------------------------*/
+html{ /*  Base HTML */
+  margin: 0 !important;
+  padding: 0 !important;
+  background-color: transparent;
+}
+body { /*  Page Canvas */
+  margin: 0 !important;
+  padding: 0 !important;
+  background-color: black;
+}
+
+h1{ /* Primary Header Text */ 
+  user-select: none;
+  margin-left: 50px;
+  font-size: 5rem;
+}
+
+h2{ /* Secondary Header Text */
+  user-select: none;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+h3{ /* Third Header Text */
+  user-select: none;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+p{ /* Paragraphs */
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 600;
+  user-select: none;
+}
+
+a { /* Links */
+  display: block;
+  margin-top: 20px;
+}
+
+button { /* Buttons */
+  margin-top: 15px;
+  padding: 10px 20px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 600;
+  user-select: none;
+}
+
+form { /* Form Box */
+  display: inline-block;
+  text-align: left;
+}
+
+label { /* Labels */
+  display: block;
+  margin-top: 10px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 600;
+  user-select: none;
+}
+
+input { /* Form Input Fields */
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+}
+input:focus{
+  border: none;
+  outline: none;
+}
+
+.pageContainer{
+  position: relative;
+  min-height: 100vh;
+  margin: 0px !important;
+  padding: 0px !important;
+}
+
+.formContainer { /* Sign Up and Login Forn Box */ 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 50vh;
+}
+
+.footer { /* Footer */
+  margin-top: 10rem;
+  width: 100%;
+  height: 5%;
+  bottom: 0 !important;       
+  left: 0 !important;           
+  text-align: center;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4);
+}
+
+/*-------------------------------------------------------------------------------------------*/
+
+/*-------------------------------------------------------------------------------------------*/
+/*------------------------------------ Navigation -------------------------------------------*/
+.nav { /* Container for Header and Navigation Buttons */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.4);
+  padding: 0px 50px;
+}
+
+.header { /* Used as the header container */
+  margin-right: auto;
+  font-weight: 700;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.navButton { /* Styles for each navigation button */
+  text-decoration: none;
+  padding: 10px 20px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 600;
+  font-size: 1.25rem;
+  text-align: center;
+  transition: background-color 0.3s, color 0.3s;
+  background-color: transparent;
+  transition: transform 0.2s ease;
+  text-decoration: underline;
+  text-decoration-thickness: 4px;
+  text-underline-offset: 10px;
+}
+.navButton:hover{
+  transform: scale(1.1);
+}
+
+.links-container ul { /* Whole List Structure and Design */
+  list-style-type: none;
+  padding: 0;
+  margin-right: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.links-container li { /* Idividial List Items */
+  margin-left: 20px;
+}
+
+/***************** Under 768 Pixels *****************/
+@media (max-width: 768px) {
+  .nav {
+    flex-direction: column;
+  }
+
+  .links-container ul {
+    margin-top: 10px;
+  }
+/****************************************************/
+
+}
+
+/*-------------------------------------------------------------------------------------------*/
+
+/*-------------------------------------------------------------------------------------------*/
+/*----------------------------------------- Home --------------------------------------------*/
+
+/*-------------------------------------------------------------------------------------------*/
+
+/*-------------------------------------------------------------------------------------------*/
+/*---------------------------------------- About --------------------------------------------*/
+.container { /* Body of the page content */
+  display: flex;
+  height: 100% !important; 
+}
+
+.aboutDivs{ /* Div containers for page sections */
+  border-radius: 5px;
+}
+
+.leftSide { /* The left side of the page */
+  flex: 1;
+  box-sizing: border-box;
+  text-align: center;
+  margin-left: 100px;
+  margin-top: 50px;
+  margin-right: 25px;
+  padding: 25px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4);
+}
+
+.rightSide { /* The right side of the page */
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  margin-right: 100px;
+  margin-top: 50px;
+  margin-left: 25px;
+  text-align: center;
+}
+
+.topSection{ /* The top section of the page */
+  flex: 1; 
+  box-sizing: border-box; 
+  margin-bottom: 25px;
+  padding: 25px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4);
+}
+
+.bottomSection{ /* The botton section of the page */
+  flex: 1; 
+  box-sizing: border-box; 
+  margin-top: 25px;
+  padding: 25px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4);
+
+}
+
+.aboutText{ /* Text */
+  font-size: 1.6rem;
+}
+
+/*-------------------------------------------------------------------------------------------*/
+
+/*-------------------------------------------------------------------------------------------*/
+/*--------------------------------------- Login ---------------------------------------------*/
+#loginForm{ /* The Form holding logging in content */
+  width: 20%;
+}
+
+#loginButton{ /* Button for logging in */
+  border-radius: 3px;
+  transition: transform 0.3s ease;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 600;
+  border: none !important;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+}
+#loginButton:hover{
+  transform: scale(1.05);
+}
+
+#loginForm label{ /* Labels for form input fields */
+  font-size: 1.5rem;
+}
+
+
+#forgotPass{ /* Button for forgetting passwrord */
+  margin-left: 20px;
+  border: transparent !important;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 600;
+  transition: transform 0.3s ease;
+}
+#forgotPass:hover{
+  transform: scale(1.05);
+}
+
+#forgotPassForm label{ /* Label for reset password form */
+  font-size: 1.5rem;
+}
+
+#resetPass{ /* Button for submit reset password form */
+  border-radius: 3px;
+  transition: transform 0.3s ease;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 600;
+  border: none !important;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+}
+
+#cancelForm{ /* Button for forgetting passwrord */
+  margin-left: 20px;
+  border: transparent !important;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 600;
+  transition: transform 0.3s ease;
+}
+
+/*-------------------------------------------------------------------------------------------*/
+
+/*-------------------------------------------------------------------------------------------*/
+/*--------------------------------------- Sign Up -------------------------------------------*/
+#signupForm{ /* Form for Signing up */
+  width: 20%;
+}
+
+#signupButton{ /* Button for submitting the signup form */
+  border-radius: 3px;
+  transition: transform 0.3s ease;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 600;
+  border: none !important;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+}
+#signupButton:hover{
+  transform: scale(1.05);
+}
+
+#signupForm label{ /* Labels for signup form fields */
+  font-size: 1.5rem;
+}
+
+/*-------------------------------------------------------------------------------------------*/
+
+/*-------------------------------------------------------------------------------------------*/
+/*--------------------------------------- Dashboard -----------------------------------------*/
+
+#savedThemes { /* Container holding saved themes cards */
+  display: flex;
+  flex-wrap: wrap;
+  align-content: left;
+  gap: 20px;
+  margin: 0px 95px;
+  margin-top: 50px !important;
+  padding: 50px;
+}
+
+.control-buttons { /* Box holding page control buttons */
+  margin-top: 25px !important;
+  margin: 0px 100px;
+  height: 10%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.pageButton{ /* Buttons used for page control, filters and saving */
+  border-radius: 3px;
+  margin: 0 10px;
+  width: 250px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 600;
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+.pageButton:hover{
+  transform: scale(1.1);
+}
+
+
+.theme { /* Theme Card */
+  border-radius: 3px;
+  width: 200px;
+  height: 220px;
+  text-align: center;
+  transition: transform 0.2s ease;
+  color: rgba(0, 0, 0, 0.5) !important;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+  user-select: none;
+  justify-content: space-evenly;
+  margin: 15px;
+}
+.theme:hover {
+  transform: scale(1.075);
+}
+
+
+
+.color-box {  /* Individual color box on card */
+  height: 80px;
+  border-radius: 3px;
+  margin: 10px;
+  width: 60%;
+  min-width: 6vw !important;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4);
+}
+
+.setThemeBtn{ /* Button used for setting theme */
+  width: 50px;
+  color: rgba(0, 0, 0, 0.5) !important;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+  user-select: none;
+  border: 0px solid transparent !important;
+  margin: 10px;
+}
+
+.likeThemeBtn{ /* Button used for liking theme */
+  width: 50px;
+  color: rgba(0, 0, 0, 0.5) !important;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+  user-select: none;
+  border: 0px solid transparent !important;
+  margin: 0px;
+  padding: 10px 0px;
+  color: rgb(255, 150, 150) !important;
+
+}
+
+.deleteThemeBtn{ /* Button for deleting theme */
+  width: 50px;
+  color: rgba(0, 0, 0, 0.5) !important;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+  user-select: none;
+  border: 0px solid transparent !important;
+  margin: 10px;
+}
+
+.modal { /* Container for save theme form */
+  display: none; 
+  position: fixed; 
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%; 
+  overflow: auto; 
+  background-color: transparent; 
+  background-color: rgba(0,0,0,0.1); 
+}
+
+#themeForm{ /* Form for saving theme */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content { /* Box holding save theme form */
+  background-color: #fefefe;
+  margin: 15% auto;
+  width: 35%;
+  height: 150px;
+  border-radius: 3px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.modal-content label{ /* Label for save theme form */
+  width: 40px !important;
+  margin: 10px !important;
+  margin-left: 0px !important;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 600;
+}
+
+.modal-content input{ /* Input for save theme form */
+  margin: 10px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 600;
+  border-radius: 3px;
+  width: 300px !important;
+}
+
+.saveThemeButton{ /* Button used in in save theme form */ 
+  width: 50px !important;
+  margin: 10px !important;
+  padding: 5px !important;
+  height: 50px;
+  width: 50px !important;
+
+}
+
+#closeModal{ /* Button used for closing save theme form */
+  margin-right: 0px !important;
+}
+
+.themePageBtn{
+  margin: 0px !important;
+  padding: 0px !important;
+  color: transparent;
+  background-color: transparent;
+  border: none !important;
+}
+
+/*-------------------------------------------------------------------------------------------*/
+
+/*-------------------------------------------------------------------------------------------*/
+/*---------------------------------------- Theme Page ---------------------------------------*/
+.themePageContainer { /* Box for Theme Content */
+  margin: 50px 100px;
+}
+
+.titleSection{
+  display: flex;
+  justify-content: space-between; /* Separates left and right sections */
+  align-items: center;
+  padding: 10px 0;
+}
+
+
+.themeTitle{ /* Theme Title Box */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+#themeTitle{  /* Theme Title */
+  font-size: 3rem;
+  margin: 5px 0px;
+}
+
+.rightButtons { /* Box for liking and downloading */
+  display: flex;
+  gap: 10px;
+}
+
+#isLiked { /* button for liking a theme */
+  font-size: 3rem;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+#downloadPDF {
+  border: none;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.4);
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 3px;
+  transition: transform 0.3s ease;
+}
+#downloadPDF:hover{
+  transform: scale(1.05);
+}
+
+.pageButtonBox{ /* Box for Liked theme */
+  display: inline-block;
+  flex: 1;
+  text-align: center;
+  width: 100px;
+  height: 100px;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.pageTime { /* Box for Theme Timestamp*/
+  display: inline-block;
+  flex: 1;
+  text-align: right;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+#isLiked{ /* button for liking theme */
+  background-color: transparent !important;
+  border: none !important;
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+
+.colorColumns { /* Container for color boxes */
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.colorBox {
+  flex: 1;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-weight: bold;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+  margin: 50px 100px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 600;
+  font-size: 1.5rem;
+  transition: transform 0.3s ease;
+}
+.colorBox:hover{
+  transform: scale(1.05);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.6);;
+}
+
+.stackedDivs {
+  margin-top: 20px;
+}
+
+.themeLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+#editUrlBtn{
+  align-items: center;
+  justify-content: center;
+  margin: 0; 
+  padding: 4px 8px; 
+  cursor: pointer;
+}
+
+.themeDescription {
+  background-color: transparent;
+  padding: 10px 0;
+  width: 100%;
+  text-align: left !important;
+}
+
+#editDescription{
+  background-color: transparent;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4);
+  border-radius: 3px;
+  border: none;
+  width: 100%;
+  text-align: left !important;
+  transition: transform 0.3s ease;
+}
+#editDescription:hover{
+  transform: scale(1.005);
+}
+
+#descriptionInput{
+  display: none;
+}
+
+.themeLink a {
+  text-decoration: none;
+}
+
+.themeLink a:hover {
+  text-decoration: underline;
+}
+/*-------------------------------------------------------------------------------------------*/

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard</title>
+  <link id="styleSheet" rel="stylesheet">
+</head>
+
+<body>
+  <div class="pageContainer">
+    <!-- BANNER HEADER -->
+  <div class="nav">
+    <div class="header"><h1>THEMATIC.</h1></div>
+      <div class="links-container">
+        <ul>
+          <li><button class="navButton" onclick="redirectHome()">Home</button></li>
+          <li><button class="navButton" onclick="redirectDashboard()">Dashboard</button></li>
+          <li><button class="navButton" onclick="redirectAbout()">About</button></li>
+          <li><button id="login" class="navButton" onclick="redirectLogin()">Login</button></li>
+          <li><button id="signup"class="navButton" onclick="redirectSignUp()">Signup</button></li>
+          <li><button id="logout" class="navButton" onclick="redirectLogout()">Logout</button></li>
+        </ul>
+      </div>
+    </div>
+  
+    <!-- Buttons to control theme on page, filters, and saving a theme -->
+    <div class="control-buttons">
+      <button id="generateNewThemeBtn" class="pageButton">Generate New Theme</button>
+      <button id="shiftColorsBtn" class="pageButton">Shift Colors</button>
+      <button id="shiftThemesBtn" class="pageButton">Shift Themes</button>
+      <button id="filterThemeBtn" class="pageButton">Filter</button>
+      <button id="saveThemeBtn" class="pageButton">Save Theme</button>
+    </div>
+
+    <!-- Saved Themes Section -->
+    <div id="savedThemes">
+      <!-- Saved themes will be displayed here -->
+    </div>
+
+    <!-- Form for saving a theme -->
+    <div id="themeModal" class="modal">
+      <div class="modal-content" id="saveThemeFormDiv" style="text-align: center;">
+        <h2>Save Theme</h2>
+        <form id="themeForm">
+          <label for="themeName">Name:</label>
+          <input type="text" id="themeName"/>
+          <label for="themeDescription">Description:</label>
+          <input type="text" id="themeDescription">
+          <button type="submit" class="pageButton saveThemeButton">&#10003;</button>
+          <button type="button" class="pageButton saveThemeButton" id="closeModal" onclick="closeForm()">&#10005;</button>
+        </form>
+      </div>
+    </div>
+
+
+    <div id="filterThemeModal" class="modal">
+      <div id="filterFormDiv" class="modal-content">
+        <h2>Filter</h2>
+        <form id="filterForm">
+          <button id="applyFilters" class="pageButton">Apply</button>
+          <button id="removeFilter" class="pageButton">Reset</button>
+          <button id="cancelFilter" class="pageButton">Cancel</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      HERE
+    </div>  
+  </div>
+  
+
+  <!-- Link to Script File -->
+  <script src="script.js"></script>
+</body>
+</html>

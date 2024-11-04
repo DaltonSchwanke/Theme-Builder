@@ -1,0 +1,45 @@
+[
+  {
+    "username": "sampleUser",
+    "password": "hashedPassword",
+    "firstName": "Sample",
+    "lastName": "User",
+    "email": "sample@example.com",
+    "phone": "123-456-7890",
+    "savedColors": [
+      {
+        "color1": "#FF5733",
+        "color2": "#33FF57",
+        "color3": "#3357FF"
+      }
+    ]
+  },
+  {
+    "username": "dalton",
+    "password": "$2b$10$loZCNw1JEVUyfKFZ3wfucOpqpBPT.NFOulByQ.ngrc/4oOhgt4nGe",
+    "firstName": "dalton",
+    "lastName": "schwanke",
+    "email": "dtschwanke@gmail.com",
+    "phone": "6512602430",
+    "savedColors": [
+      {
+        "color1": "#244050",
+        "color2": "#369b6a",
+        "color3": "#c6ab24",
+        "name": "asfasdasf",
+        "description": "asdasdasdasd",
+        "liked": false,
+        "timestamp": "2024-11-04T04:02:24.563Z"
+      },
+      {
+        "color1": "#4e7278",
+        "color2": "#4fa9b8",
+        "color3": "#142b2f",
+        "name": "Git Option #1",
+        "description": "This could be a decent option for the Git website, has a slash of color, but still darker theme like Git has.",
+        "liked": false,
+        "timestamp": "2024-11-04T04:03:45.329Z"
+      }
+    ]
+  }
+]

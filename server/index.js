@@ -80,7 +80,7 @@ const requestListener = (req, res) => {
  *  if console.logs that the port is not active. 
  */
 //-------------------------------------------------------------------------------------------
-const PORT = 3000;
+const PORT = 4000;
 const server = http.createServer(requestListener);
 server.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

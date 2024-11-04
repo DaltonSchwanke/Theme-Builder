@@ -552,10 +552,10 @@ document.addEventListener('DOMContentLoaded', () => {
   if(themeForm){
     themeForm.addEventListener('submit', async (event) => {
       event.preventDefault();
-      const themeName = document.getElementById('themeName').value;
-      const description = document.getElementById('themeDescription').value;
-      const colors = getStoredColors();
-      const liked = false;
+      var themeName = document.getElementById('themeName').value;
+      var description = document.getElementById('themeDescription').value;
+      var colors = getStoredColors();
+      var liked = false;
       if (!colors) {
         alert('No colors available to save.');
         return;

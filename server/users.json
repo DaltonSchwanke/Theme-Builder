@@ -23,22 +23,40 @@
     "phone": "6512602430",
     "savedColors": [
       {
-        "color1": "#244050",
-        "color2": "#369b6a",
-        "color3": "#c6ab24",
-        "name": "asfasdasf",
-        "description": "asdasdasdasd",
-        "liked": false,
-        "timestamp": "2024-11-04T04:02:24.563Z"
-      },
-      {
         "color1": "#4e7278",
         "color2": "#4fa9b8",
         "color3": "#142b2f",
         "name": "Git Option #1",
         "description": "This could be a decent option for the Git website, has a slash of color, but still darker theme like Git has.",
-        "liked": false,
+        "liked": true,
         "timestamp": "2024-11-04T04:03:45.329Z"
+      },
+      {
+        "color1": "#325751",
+        "color2": "#fffefc",
+        "color3": "#273031",
+        "name": "Git Option #2",
+        "description": "THis ",
+        "liked": false,
+        "timestamp": "2024-11-04T04:31:02.217Z"
+      },
+      {
+        "color1": "#245690",
+        "color2": "#a3d2f5",
+        "color3": "#0d2c46",
+        "name": "Git Option #3",
+        "description": "This might be a decent option",
+        "liked": false,
+        "timestamp": "2024-11-04T04:34:14.816Z"
+      },
+      {
+        "color1": "#245690",
+        "color2": "#a3d2f5",
+        "color3": "#0d2c46",
+        "name": "Default 1730742900529",
+        "description": "add a description",
+        "liked": false,
+        "timestamp": "2024-11-04T17:55:00.535Z"
       }
     ]
   }

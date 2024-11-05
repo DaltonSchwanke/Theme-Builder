@@ -38,7 +38,9 @@ const requestListener = (req, res) => {
     handleLikeTheme(req, res);
   } else if (pathname.startsWith('/update-description') && req.method === 'PUT'){
     handleUpdateDescription(req, res);
-  } else if (pathname.startsWith('/get-theme') && req.method === 'GET'){
+  } else if (pathname.startsWith('/update-link') && req.method === 'PUT'){
+    handleUpdateLink(req, res);
+  }else if (pathname.startsWith('/get-theme') && req.method === 'GET'){
     handleThemeData(req, res);
   } else {
     let filePath = path.join(__dirname, '../public', pathname === '/' ? 'index.html' : pathname);
@@ -354,6 +356,7 @@ function handleSaveColor(req, res) {
       res.end(JSON.stringify({ message: "'liked' field must be a boolean" }));
       return;
     }
+    const link = "Have a website that uses this link? Add it here";
     const themeDescription = colorScheme.description;
     const themeName = colorScheme.name || `default ${Date.now()}`;
     fs.readFile(path.join(__dirname, 'users.json'), 'utf8', (err, data) => {
@@ -378,6 +381,7 @@ function handleSaveColor(req, res) {
         description: themeDescription,
         liked: colorScheme.liked,
         timestamp: new Date().toISOString(),
+        url: link
       };
       users[userIndex].savedColors.push(colorSchemeToSave);
       fs.writeFile(path.join(__dirname, 'users.json'), JSON.stringify(users, null, 2), err => {
@@ -623,6 +627,69 @@ function handleUpdateDescription(req, res){
   });
 }
 //-------------------------------------------------------------------------------------------
+
+//------------------------------------- Update URL Link -------------------------------------
+/**
+ *  This is the function for handling updating the user's theme link. 
+ */
+//-------------------------------------------------------------------------------------------
+function handleUpdateLink(req, res){
+  const user = authenticateToken(req, res);
+  if(!user) return;
+  const themeName = decodeURIComponent(req.url.split('/').pop());
+  let body = '';
+  req.on('data', chunk => {
+    body += chunk.toString();
+  });
+  req.on('end', () => {
+    let requestBody;
+    try {
+      requestBody = JSON.parse(body);
+    } catch (error) {
+      res.writeHead(400, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify({ message: 'Invalid JSON format' }));
+      return;
+    }
+    fs.readFile(path.join(__dirname, 'users.json'), 'utf8', (err, data) => {
+      if (err) {
+        res.writeHead(500, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ message: 'Internal Server Error' }));
+        return;
+      }
+      let users;
+      try {
+        users = JSON.parse(data);
+      } catch (error) {
+        console.error("Error parsing JSON data:", error.message , ' Data: ', data);
+        users = [];
+      }
+      const userIndex = users.findIndex(u => u.username === user.username);
+      if (userIndex === -1) {
+        res.writeHead(404, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ message: 'User not found' }));
+        return;
+      }
+      const themeIndex = users[userIndex].savedColors.findIndex(theme => theme.name === themeName);
+      if (themeIndex === -1) {
+        res.writeHead(404, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ message: 'Theme not found' }));
+        return;
+      }
+      users[userIndex].savedColors[themeIndex].url = requestBody.link;
+      fs.writeFile(path.join(__dirname, 'users.json'), JSON.stringify(users, null, 2), err => {
+        if (err) {
+          res.writeHead(500, { 'Content-Type': 'application/json' });
+          res.end(JSON.stringify({ message: 'Failed to update theme link' }));
+        } else {
+          res.writeHead(200, { 'Content-Type': 'application/json' });
+          res.end(JSON.stringify({ message: 'Theme link updated successfully' }));
+        }
+      });
+    });
+  });
+}
+//-------------------------------------------------------------------------------------------
+
 
 //------------------------------------- Get Theme Data --------------------------------------
 /**

@@ -1,23 +1,3 @@
-
-/**
- *  -- Make Content for the 'Home' page. Put in a carousel that contains demo and info about the website
- *     and what it can do.
- * 
- *  -- Make it so that the cards are left hand aligned, spacing between them is fine. 
- * 
- *  -- try to make it so that the color theme can cycle through all 6 possibilities,  
- * 
- *  -- Plan how to handle filter functionality. will need it to query the server for themes that fit the
- *     criteria (colors, dates, titles) *in the future possibly add search feature function. Will need to 
- *     calculate and bin the color values "if rgb 'b' values is greater than other than = blue"
- * 
- *  -- Think about adding in a new page for the themes (independent pages). There should be work done before this 
- *     step is crossed. There will need to be more data points about the themes, such as what style sheet is associated
- *     with that theme, description (this will need to be something we add when saving a theme, and alos a function to 
- *     edit description/ notes on it). On this page the user should be able to edit the description/notes, there
- *     should also be a function to download it in pdf form (will need research first). 
-*/
-
 //************************************ Functions and Code After DOM Loaded ****************************************/
 /** 
  *  Below is the code that will run after the DOM is loaded, there is also some function under it that can be called
@@ -789,7 +769,7 @@ document.addEventListener('DOMContentLoaded', () => {
    *  by clicking on the description box, saving it by clicking away. 
    */
   //-------------------------------------------------------------------------------------------
-  if(window.location.href == window.location.origin + '/theme.html'){
+  if(window.location.href == window.location.origin + '/theme.html'){ 
     const themePgTitle = document.getElementById('themeTitle');
     const isLiked = document.getElementById('isLiked');
     const downloadBtn = document.getElementById('downloadPDF');
@@ -799,6 +779,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const themePgColor3 = document.getElementById('color3Box');
     const descriptionBtn = document.getElementById('editDescription');
     const themePgDescription = document.getElementById('themeDescription');
+    const themeUrlLink = document.getElementById('themeUrl');
+    const themeUrlInput = document.getElementById('urlInput');
+    if(themeUrlInput){
+      themeUrlInput.style.display = 'none';
+    }
     if(themePgTitle){
       themePgTitle.textContent = themeData.name;
     }
@@ -875,14 +860,84 @@ document.addEventListener('DOMContentLoaded', () => {
         themePgColor3.style.color = 'transparent';
       });
     }
+    if(themeUrlInput){
+      themeUrlInput.style.color = colors.color3 + "!important";
+      themeUrlInput.style.backgroundColor = 'transparent';
+    }
+    if(themeUrlLink){
+      themeUrlLink.style.color = colors.color3;
+      themeUrlLink.textContent = themeData.url;
+      if(isValidUrl(themeData.url)){
+        themeUrlLink.href = themeData.url;
+      }else{
+        themeUrlLink.removeAttribute('href');
+      }
+    }
     if(descriptionBtn){
       descriptionBtn.style.backgroundColor = colors.color2;
     }
     if(themePgDescription){
       themePgDescription.textContent = themeData.description;
     }
+    const themeUrlBtn = document.getElementById('editUrlBtn');
+    let isUrlInputOpen = false;
+    if (themeUrlBtn) {
+      themeUrlBtn.textContent = 'edit';
+      themeUrlBtn.addEventListener('click', () => {
+        const input = document.getElementById('urlInput');
+        const link = document.getElementById('themeUrl');
+        if (!isUrlInputOpen) { 
+          themeUrlBtn.textContent = 'save';
+          link.style.display = 'none';
+          input.style.display = 'block';
+          input.value = link.textContent || "Have a website that uses this link? Add it here";
+          input.style.color = colors.color3;
+          isUrlInputOpen = true;
+        } else { 
+          const newLink = input.value.trim();
+          if (newLink && isValidUrl(newLink)) {
+            const token = localStorage.getItem('token');
+            updateLink(themeData.name, token, newLink);
+            link.textContent = newLink;
+            link.href = newLink;
+          } else {
+            link.textContent = themeData.url || "Have a website that uses this link? Add it here";
+            link.removeAttribute('href');
+          }
+          themeUrlBtn.textContent = 'edit';
+          link.style.display = 'block';
+          input.style.display = 'none';
+          isUrlInputOpen = false;
+        }
+      });
+    }
   }
   //-------------------------------------------------------------------------------------------
+
+
+  async function updateLink(themeName, token, link){
+    try{
+      const response = await fetch(`/update-link/${encodeURIComponent(themeName)}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`,
+        },
+        body: JSON.stringify({ link })
+      });
+      const result = await response.json();
+      if(response.status === 200){
+        console.log(`Theme ${themeName} Link updates successfully`);
+        return true;
+      } else{
+        console.log(`Theme ${themeName }`)
+        return false;
+      }
+    } catch (error){
+      console.error("Error updating Link:", error);
+      return false;
+    }
+  }
 
   //-------------------------------- Code to Edit Description ---------------------------------
   /**
@@ -923,6 +978,18 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
   //-------------------------------------------------------------------------------------------
+  
+
+  function isValidUrl(url) {
+    try {
+      new URL(url); // This will throw an error if the URL is not valid
+      return true;
+    } catch (_) {
+      return false;
+    }
+  }
+
+
 
 
 

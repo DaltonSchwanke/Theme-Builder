@@ -29,16 +29,8 @@
         "name": "Git Option #1",
         "description": "This could be a decent option for the Git website, has a slash of color, but still darker theme like Git has.",
         "liked": true,
-        "timestamp": "2024-11-04T04:03:45.329Z"
-      },
-      {
-        "color1": "#325751",
-        "color2": "#fffefc",
-        "color3": "#273031",
-        "name": "Git Option #2",
-        "description": "THis ",
-        "liked": false,
-        "timestamp": "2024-11-04T04:31:02.217Z"
+        "timestamp": "2024-11-04T04:03:45.329Z",
+        "url": "https://github.com/users/DaltonSchwanke/projects/3/views/1"
       },
       {
         "color1": "#245690",
@@ -47,16 +39,58 @@
         "name": "Git Option #3",
         "description": "This might be a decent option",
         "liked": false,
-        "timestamp": "2024-11-04T04:34:14.816Z"
+        "timestamp": "2024-11-04T04:34:14.816Z",
+        "url": "test.com"
       },
       {
         "color1": "#245690",
         "color2": "#a3d2f5",
         "color3": "#0d2c46",
         "name": "Default 1730742900529",
+        "description": "undefined",
+        "liked": false,
+        "timestamp": "2024-11-04T17:55:00.535Z",
+        "url": "http://localhost:4000/theme.html"
+      },
+      {
+        "color1": "#245690",
+        "color2": "#a3d2f5",
+        "color3": "#0d2c46",
+        "name": "Default 1730775787804",
         "description": "add a description",
         "liked": false,
-        "timestamp": "2024-11-04T17:55:00.535Z"
+        "timestamp": "2024-11-05T03:03:07.813Z",
+        "url": "http://localhost:4000/theme.html"
+      },
+      {
+        "color1": "#d4ab79",
+        "color2": "#141f30",
+        "color3": "#505c5d",
+        "name": "Default 1730776869668",
+        "description": "add a description",
+        "liked": false,
+        "timestamp": "2024-11-05T03:21:09.673Z",
+        "url": "undefined"
+      },
+      {
+        "color1": "#d4ab79",
+        "color2": "#141f30",
+        "color3": "#505c5d",
+        "name": "Default 1730777606038",
+        "description": "add a description",
+        "liked": false,
+        "timestamp": "2024-11-05T03:33:26.043Z",
+        "url": "https://github.com/users/DaltonSchwanke/projects/3/views/1"
+      },
+      {
+        "color1": "#44ab8f",
+        "color2": "#d9d28b",
+        "color3": "#3a4b58",
+        "name": "Default 1730780640033",
+        "description": "add a description",
+        "liked": false,
+        "timestamp": "2024-11-05T04:24:00.038Z",
+        "url": "Have a website that uses this link? Add it here"
       }
     ]
   }
